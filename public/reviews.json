@@ -1,0 +1,23 @@
+[
+  {
+    "id": "seed-sophia-roberts",
+    "name": "Sophia Roberts",
+    "text": "The Biscoff cheesecake is out of this world. Best dessert I've had in years!",
+    "stars": 5,
+    "createdAt": "2026-05-01T10:00:00.000Z"
+  },
+  {
+    "id": "seed-james-wilson",
+    "name": "James Wilson",
+    "text": "Exquisite presentation and even better taste. Dolcetto has set a new bar for premium cafes.",
+    "stars": 5,
+    "createdAt": "2026-05-02T11:30:00.000Z"
+  },
+  {
+    "id": "seed-elena-petrova",
+    "name": "Elena Petrova",
+    "text": "Handmade perfection. You can tell they use the best ingredients.",
+    "stars": 5,
+    "createdAt": "2026-05-03T09:15:00.000Z"
+  }
+]
