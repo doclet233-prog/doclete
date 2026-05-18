@@ -160,7 +160,15 @@ const Stories = () => {
             <span className="uppercase tracking-[0.3em] text-gold text-sm font-bold mb-3 block">
               Bakery Stories
             </span>
-            <h2 className="text-4xl md:text-6xl font-serif gold-gradient">Fresh Moments</h2>
+            <h2 className="text-4xl md:text-6xl font-serif gold-gradient mb-2">Fresh Moments</h2>
+            <a 
+              href="https://www.instagram.com/_.dolcetto._?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-xs uppercase tracking-widest text-gold hover:underline font-bold inline-flex items-center gap-1.5 cursor-pointer mt-1"
+            >
+              📷 Follow @_.dolcetto._
+            </a>
           </div>
           <span className="text-white/35 uppercase tracking-[0.2em] text-xs font-semibold">
             <span className="hidden md:inline">Hover to fan out • Click to view</span>

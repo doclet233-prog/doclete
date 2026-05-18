@@ -21,7 +21,9 @@ const Gallery = () => {
           >
             Visual Delights
           </motion.h2>
-          <p className="text-white/40 tracking-[0.2em] uppercase text-sm">Follow our journey on Instagram</p>
+          <p className="text-white/40 tracking-[0.2em] uppercase text-sm">
+            Follow our journey on <a href="https://www.instagram.com/_.dolcetto._?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className="text-gold hover:underline transition-all">Instagram</a>
+          </p>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
