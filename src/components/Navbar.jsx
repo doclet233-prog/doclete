@@ -30,7 +30,7 @@ const Navbar = () => {
           animate={{ opacity: 1, x: 0 }}
           className="flex items-center gap-2"
         >
-          <img src={logo} alt="Dolcetto Logo" className="h-10 w-10 rounded-full object-cover border border-gold/20" />
+          <img src={logo} alt="Dolcetto Logo" className="h-10 w-10 rounded-full object-cover border-2 border-black" />
           <span className="text-2xl font-serif tracking-widest gold-gradient italic">dolcetto</span>
         </motion.div>
 
