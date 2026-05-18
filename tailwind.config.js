@@ -8,13 +8,13 @@ export default {
     extend: {
       colors: {
         gold: {
-          light: '#F3EFE4',
-          DEFAULT: '#DCD5C6',
-          dark: '#B0A48E',
+          light: 'var(--gold-dark)',
+          DEFAULT: 'var(--gold)',
+          dark: 'var(--gold-dark)',
         },
-        cream: '#F3EFE4',
-        softBlack: '#120B0A',
-        warmDark: '#1E1210',
+        cream: 'var(--bg-color)',
+        softBlack: 'var(--bg-color)',
+        warmDark: 'var(--panel-bg)',
       },
       fontFamily: {
         serif: ['"Playfair Display"', 'serif'],
