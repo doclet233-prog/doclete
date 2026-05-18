@@ -3,8 +3,8 @@
 @config "../tailwind.config.js";
 
 :root {
-  --gold: #D9B44A;
-  --cream: #FAF5EC;
+  --gold: #DCD5C6;
+  --cream: #F3EFE4;
   --soft-black: #0D0807;
 }
 
@@ -35,20 +35,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .gold-gradient {
-  background: linear-gradient(135deg, #D9B44A 0%, #FAF5EC 50%, #AF861E 100%);
+  background: linear-gradient(135deg, #DCD5C6 0%, #F3EFE4 50%, #A29780 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .gold-button {
-  background: linear-gradient(135deg, #D9B44A 0%, #AF861E 100%);
+  background: linear-gradient(135deg, #DCD5C6 0%, #A29780 100%);
   color: #0D0807;
   transition: all 0.3s ease;
 }
 
 .gold-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 10px 20px rgba(220, 213, 198, 0.3);
 }
 
 /* Custom scrollbar */
@@ -61,10 +61,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #D4AF37;
+  background: #DCD5C6;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #B8860B;
+  background: #A29780;
 }

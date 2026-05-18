@@ -1,4 +1,4 @@
-import logo from '../assets/logo.png';
+import logo from '../assets/logo1.png';
 
 const Footer = () => {
   return (
@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-center gap-12 mb-20">
           <div className="flex flex-col items-center md:items-start">
-            <img src={logo} alt="Dolcetto Logo" className="h-16 mb-6" />
+            <img src={logo} alt="Dolcetto Logo" className="h-16 w-16 rounded-full object-cover border border-gold/20 mb-6" />
             <p className="text-white/40 text-sm max-w-xs text-center md:text-left">
               Redefining the artisanal dessert experience with premium ingredients and handmade perfection.
             </p>

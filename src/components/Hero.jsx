@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import logo from '../assets/logo.png';
+import logo from '../assets/logo1.png';
 import { formatRating } from '../data/reviews';
 
 const Hero = ({ averageRating, reviewCount }) => {
@@ -17,7 +17,23 @@ const Hero = ({ averageRating, reviewCount }) => {
           transition={{ duration: 1, ease: 'easeOut' }}
           className="mb-8"
         >
-          <img src={logo} alt="Dolcetto Logo" className="h-32 md:h-48 mx-auto filter drop-shadow-2xl" />
+          <img src={logo} alt="Dolcetto Logo" className="h-32 w-32 md:h-48 md:w-48 rounded-full object-cover mx-auto filter drop-shadow-2xl border-2 border-gold/30" />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.8 }}
+          className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gold/10 border border-gold/30 text-gold text-[10px] md:text-xs uppercase tracking-widest font-bold mb-6 shadow-[0_0_20px_rgba(220,213,198,0.15)] hover:scale-105 hover:bg-gold/15 transition-all duration-300 cursor-pointer"
+          onClick={() => {
+            const orderSection = document.getElementById('order');
+            if (orderSection) {
+              orderSection.scrollIntoView({ behavior: 'smooth' });
+            }
+          }}
+        >
+          <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
+          <span>✨ Now you can order also</span>
         </motion.div>
 
         <motion.h1
@@ -59,12 +75,16 @@ const Hero = ({ averageRating, reviewCount }) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.8 }}
-          className="flex flex-col md:flex-row gap-6 justify-center"
+          className="flex flex-col md:flex-row gap-4 md:gap-6 justify-center items-center"
         >
-          <a href="#products" className="gold-button px-10 py-4 rounded-full text-sm uppercase tracking-widest font-bold">
+          <a href="#order" className="bg-gold hover:bg-gold/90 text-softBlack px-8 py-4 rounded-full text-xs uppercase tracking-widest font-bold shadow-[0_0_25px_rgba(220,213,198,0.4)] hover:shadow-[0_0_35px_rgba(220,213,198,0.6)] hover:scale-105 active:scale-95 transition-all duration-300 flex items-center gap-2 border border-gold w-full sm:w-auto justify-center">
+            <span className="w-2 h-2 rounded-full bg-softBlack animate-ping" />
+            Order Online
+          </a>
+          <a href="#products" className="border border-white/20 hover:bg-white/5 px-8 py-4 rounded-full text-xs uppercase tracking-widest font-bold transition-all duration-300 w-full sm:w-auto justify-center text-center">
             Explore Menu
           </a>
-          <a href="#stories" className="border border-white/20 hover:bg-white/5 px-10 py-4 rounded-full text-sm uppercase tracking-widest font-bold transition-all duration-300">
+          <a href="#stories" className="border border-white/20 hover:bg-white/5 px-8 py-4 rounded-full text-xs uppercase tracking-widest font-bold transition-all duration-300 w-full sm:w-auto justify-center text-center">
             Stories
           </a>
         </motion.div>

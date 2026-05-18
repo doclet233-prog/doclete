@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import logo from '../assets/logo.png';
+import logo from '../assets/logo1.png';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -30,7 +30,7 @@ const Navbar = () => {
           animate={{ opacity: 1, x: 0 }}
           className="flex items-center gap-2"
         >
-          <img src={logo} alt="Dolcetto Logo" className="h-10 w-auto" />
+          <img src={logo} alt="Dolcetto Logo" className="h-10 w-10 rounded-full object-cover border border-gold/20" />
           <span className="text-2xl font-serif tracking-widest gold-gradient italic">_.dolcetto._</span>
         </motion.div>
 
@@ -46,7 +46,7 @@ const Navbar = () => {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-gold hover:bg-gold/90 text-softBlack px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold shadow-[0_0_20px_rgba(212,175,55,0.45)] hover:shadow-[0_0_30px_rgba(212,175,55,0.65)] hover:scale-105 active:scale-95 transition-all duration-300 flex items-center gap-1.5 border border-gold"
+                  className="bg-gold hover:bg-gold/90 text-softBlack px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-bold shadow-[0_0_20px_rgba(220,213,198,0.45)] hover:shadow-[0_0_30px_rgba(220,213,198,0.65)] hover:scale-105 active:scale-95 transition-all duration-300 flex items-center gap-1.5 border border-gold"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-softBlack animate-ping" />
                   {link.name}
@@ -104,7 +104,7 @@ const Navbar = () => {
                       key={link.name}
                       href={link.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className="bg-gold text-softBlack w-full py-4 rounded-2xl text-center font-bold tracking-widest uppercase text-sm shadow-[0_10px_35px_rgba(212,175,55,0.3)] flex items-center justify-center gap-2 border border-gold"
+                      className="bg-gold text-softBlack w-full py-4 rounded-2xl text-center font-bold tracking-widest uppercase text-sm shadow-[0_10px_35px_rgba(220,213,198,0.3)] flex items-center justify-center gap-2 border border-gold"
                     >
                       <span className="w-2 h-2 rounded-full bg-softBlack animate-ping" />
                       {link.name}

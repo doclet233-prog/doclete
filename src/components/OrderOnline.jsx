@@ -2,16 +2,14 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { productsData } from '../data/products';
 
-// Enrich productsData with localized random prices for the ordering flow
-const PRODUCTS_LIST = productsData.map((item, idx) => {
-  const basePrices = [349, 399, 249, 199, 149, 299, 279];
-  const price = basePrices[idx] || 299;
+// Enrich productsData with prices from the products config
+const PRODUCTS_LIST = productsData.map((item) => {
   return {
     id: item.id,
     name: item.name,
     image: item.image,
-    priceVal: price,
-    priceStr: `₹${price}`
+    priceVal: item.numericPrice,
+    priceStr: item.price
   };
 });
 
@@ -32,6 +30,9 @@ const OrderOnline = ({ selectedProduct, clearSelectedProduct }) => {
   
   // Store quantities in a dictionary state keyed by product name
   const [quantities, setQuantities] = useState({});
+  
+  // Size selection for Cold Coffee
+  const [coffeeSize, setCoffeeSize] = useState('Large'); // 'Small' or 'Large'
 
   // Form Fields
   const [name, setName] = useState('');
@@ -70,6 +71,9 @@ const OrderOnline = ({ selectedProduct, clearSelectedProduct }) => {
       const match = ALL_ITEMS.find(item => item.name === selectedProduct);
       if (match) {
         setQty(match.name, 1);
+        if (match.name === 'Cold Coffee') {
+          setCoffeeSize('Large'); // Default to Large
+        }
       } else {
         setQty('Custom Special Order', 1);
         setCustomDetails(`Inquiry regarding: ${selectedProduct}`);
@@ -85,7 +89,13 @@ const OrderOnline = ({ selectedProduct, clearSelectedProduct }) => {
   // Compute selected items list and order totals
   const selectedItems = ALL_ITEMS.filter(item => getQty(item.name) > 0);
   const totalItemsCount = selectedItems.reduce((acc, item) => acc + getQty(item.name), 0);
-  const itemsSubtotal = selectedItems.reduce((acc, item) => acc + (item.priceVal * getQty(item.name)), 0);
+  const itemsSubtotal = selectedItems.reduce((acc, item) => {
+    let price = item.priceVal;
+    if (item.name === 'Cold Coffee') {
+      price = coffeeSize === 'Small' ? 59 : 89;
+    }
+    return acc + (price * getQty(item.name));
+  }, 0);
   const deliveryFee = itemsSubtotal > 0 ? 49 : 0;
   const orderGrandTotal = itemsSubtotal + deliveryFee;
 
@@ -169,6 +179,9 @@ const OrderOnline = ({ selectedProduct, clearSelectedProduct }) => {
         if (item.name === 'Custom Special Order') {
           return `${item.name} (Specification: ${customDetails.trim()})`;
         }
+        if (item.name === 'Cold Coffee') {
+          return `${item.name} (${coffeeSize}) (x${getQty(item.name)})`;
+        }
         return `${item.name} (x${getQty(item.name)})`;
       })
       .join(', ');
@@ -180,11 +193,19 @@ const OrderOnline = ({ selectedProduct, clearSelectedProduct }) => {
       name: name.trim(),
       phone: phone.trim(),
       address: address.trim(),
-      itemsList: selectedItems.map(item => ({
-        name: item.name,
-        qty: getQty(item.name),
-        totalPrice: item.priceVal > 0 ? `₹${item.priceVal * getQty(item.name)}` : 'Quote Pending'
-      })),
+      itemsList: selectedItems.map(item => {
+        let price = item.priceVal;
+        let displayName = item.name;
+        if (item.name === 'Cold Coffee') {
+          price = coffeeSize === 'Small' ? 59 : 89;
+          displayName = `Cold Coffee (${coffeeSize})`;
+        }
+        return {
+          name: displayName,
+          qty: getQty(item.name),
+          totalPrice: price > 0 ? `₹${price * getQty(item.name)}` : 'Quote Pending'
+        };
+      }),
       customNotes: getQty('Custom Special Order') > 0 ? customDetails.trim() : null,
       totalCostStr: itemsSubtotal > 0 ? `₹${orderGrandTotal}` : 'Quote Pending',
       notes: notes.trim() || 'No specific requests.',
@@ -270,7 +291,7 @@ const OrderOnline = ({ selectedProduct, clearSelectedProduct }) => {
             <h2 className="text-4xl md:text-6xl font-serif gold-gradient mb-4">Order Online</h2>
             
             {/* Delivery Notice Alert Box */}
-            <div className="inline-block mt-4 bg-gold/10 border border-gold/30 rounded-2xl px-6 py-3 shadow-[0_10px_30px_rgba(212,175,55,0.05)]">
+            <div className="inline-block mt-4 bg-gold/10 border border-gold/30 rounded-2xl px-6 py-3 shadow-[0_10px_30px_rgba(220,213,198,0.05)]">
               <span className="text-gold text-xs md:text-sm font-bold tracking-widest uppercase flex items-center justify-center gap-2">
                 <span className="animate-pulse">📍</span> Online delivery available only in Mangalore.
               </span>
@@ -330,7 +351,7 @@ const OrderOnline = ({ selectedProduct, clearSelectedProduct }) => {
                             isCustom ? 'cursor-pointer' : ''
                           } ${
                             isSelected 
-                              ? 'bg-gold/5 border-gold/30 shadow-[0_4px_20px_rgba(212,175,55,0.05)]' 
+                              ? 'bg-gold/5 border-gold/30 shadow-[0_4px_20px_rgba(220,213,198,0.05)]' 
                               : 'bg-transparent border-transparent hover:bg-white/5'
                           }`}
                         >
@@ -353,8 +374,36 @@ const OrderOnline = ({ selectedProduct, clearSelectedProduct }) => {
                                   {item.name}
                                 </h4>
                                 <span className="text-xs text-gold font-mono font-semibold">
-                                  {item.priceStr}
+                                  {item.name === 'Cold Coffee' 
+                                    ? `₹${coffeeSize === 'Small' ? 59 : 89}` 
+                                    : item.priceStr}
                                 </span>
+                                {item.name === 'Cold Coffee' && qty > 0 && (
+                                  <div className="flex items-center gap-1.5 mt-2 bg-white/5 p-0.5 rounded-lg border border-white/5 w-fit" onClick={(e) => e.stopPropagation()}>
+                                    <button
+                                      type="button"
+                                      onClick={() => setCoffeeSize('Small')}
+                                      className={`px-3 py-1 rounded-md text-[9px] uppercase font-bold tracking-wider transition-all ${
+                                        coffeeSize === 'Small'
+                                          ? 'bg-gold text-softBlack'
+                                          : 'text-white/40 hover:text-white/80'
+                                      }`}
+                                    >
+                                      Small
+                                    </button>
+                                    <button
+                                      type="button"
+                                      onClick={() => setCoffeeSize('Large')}
+                                      className={`px-3 py-1 rounded-md text-[9px] uppercase font-bold tracking-wider transition-all ${
+                                        coffeeSize === 'Large'
+                                          ? 'bg-gold text-softBlack'
+                                          : 'text-white/40 hover:text-white/80'
+                                      }`}
+                                    >
+                                      Large
+                                    </button>
+                                  </div>
+                                )}
                               </div>
                             </div>
 
@@ -455,7 +504,7 @@ const OrderOnline = ({ selectedProduct, clearSelectedProduct }) => {
                       <button 
                         type="button"
                         onClick={handleNextStep}
-                        className="gold-button px-6 py-3.5 rounded-xl font-bold uppercase tracking-widest text-xs flex items-center gap-2 group shadow-[0_10px_25px_rgba(212,175,55,0.2)]"
+                        className="gold-button px-6 py-3.5 rounded-xl font-bold uppercase tracking-widest text-xs flex items-center gap-2 group shadow-[0_10px_25px_rgba(220,213,198,0.2)]"
                       >
                         Next Details 
                         <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
@@ -561,7 +610,7 @@ const OrderOnline = ({ selectedProduct, clearSelectedProduct }) => {
                       <button 
                         type="submit" 
                         disabled={isSending}
-                        className="gold-button flex-1 w-full py-4 rounded-xl font-bold uppercase tracking-widest text-xs transition-all flex items-center justify-center gap-3 disabled:opacity-60 shadow-[0_10px_25px_rgba(212,175,55,0.2)]"
+                        className="gold-button flex-1 w-full py-4 rounded-xl font-bold uppercase tracking-widest text-xs transition-all flex items-center justify-center gap-3 disabled:opacity-60 shadow-[0_10px_25px_rgba(220,213,198,0.2)]"
                       >
                         {isSending ? (
                           <>
@@ -586,25 +635,33 @@ const OrderOnline = ({ selectedProduct, clearSelectedProduct }) => {
                     
                     <div className="space-y-4 text-left">
                       <div className="max-h-48 overflow-y-auto pr-1 space-y-3 scrollbar-thin">
-                        {selectedItems.map(item => (
-                          <div key={item.id} className="flex flex-col gap-1 border-b border-white/5 pb-2 last:border-0 last:pb-0">
-                            <div className="flex justify-between items-start gap-4">
-                              <div>
-                                <h4 className="font-serif text-xs font-bold text-white leading-tight">{item.name}</h4>
-                                <span className="text-white/40 text-[10px] font-mono">Qty: x{getQty(item.name)}</span>
+                        {selectedItems.map(item => {
+                          let price = item.priceVal;
+                          let displayName = item.name;
+                          if (item.name === 'Cold Coffee') {
+                            price = coffeeSize === 'Small' ? 59 : 89;
+                            displayName = `Cold Coffee (${coffeeSize})`;
+                          }
+                          return (
+                            <div key={item.id} className="flex flex-col gap-1 border-b border-white/5 pb-2 last:border-0 last:pb-0">
+                              <div className="flex justify-between items-start gap-4">
+                                <div>
+                                  <h4 className="font-serif text-xs font-bold text-white leading-tight">{displayName}</h4>
+                                  <span className="text-white/40 text-[10px] font-mono">Qty: x{getQty(item.name)}</span>
+                                </div>
+                                <span className="text-xs font-semibold text-white/90 font-mono">
+                                  {price > 0 ? `₹${price * getQty(item.name)}` : 'Quote Pending'}
+                                </span>
                               </div>
-                              <span className="text-xs font-semibold text-white/90 font-mono">
-                                {item.priceVal > 0 ? `₹${item.priceVal * getQty(item.name)}` : 'Quote Pending'}
-                              </span>
+                              
+                              {item.name === 'Custom Special Order' && customDetails.trim() && (
+                                <div className="text-[10px] italic text-gold/80 pl-2 leading-relaxed bg-white/5 rounded-lg p-1.5 border border-gold/10">
+                                  Specs: {customDetails}
+                                </div>
+                              )}
                             </div>
-                            
-                            {item.name === 'Custom Special Order' && customDetails.trim() && (
-                              <div className="text-[10px] italic text-gold/80 pl-2 leading-relaxed bg-white/5 rounded-lg p-1.5 border border-gold/10">
-                                Specs: {customDetails}
-                              </div>
-                            )}
-                          </div>
-                        ))}
+                          );
+                        })}
                       </div>
 
                       {itemsSubtotal > 0 && (

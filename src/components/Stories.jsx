@@ -194,7 +194,7 @@ const Stories = () => {
                   setProgress(0);
                   setIsPaused(false);
                 }}
-                className="absolute w-72 h-[420px] lg:w-80 lg:h-[480px] rounded-[2rem] border border-gold/30 overflow-hidden shadow-[0_30px_70px_rgba(0,0,0,0.75)] bg-softBlack cursor-pointer group focus:outline-none transition-shadow duration-300 hover:shadow-[0_35px_80px_rgba(212,175,55,0.22)]"
+                className="absolute w-72 h-[420px] lg:w-80 lg:h-[480px] rounded-[2rem] border border-gold/30 overflow-hidden shadow-[0_30px_70px_rgba(0,0,0,0.75)] bg-softBlack cursor-pointer group focus:outline-none transition-shadow duration-300 hover:shadow-[0_35px_80px_rgba(220,213,198,0.22)]"
               >
                 {/* Image */}
                 <div className="absolute inset-0 z-0">

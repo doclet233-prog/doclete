@@ -27,7 +27,7 @@ const Products = ({ onSelectProduct }) => {
 
         <motion.div 
           layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
+          className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8"
         >
           {productsData.map((product) => (
             <motion.a
@@ -44,28 +44,31 @@ const Products = ({ onSelectProduct }) => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4 }}
-              className="group relative glass-morphism rounded-3xl overflow-hidden p-4 hover:border-gold/30 transition-all duration-500 block cursor-pointer"
+              className="group relative glass-morphism rounded-2xl md:rounded-3xl overflow-hidden p-2.5 md:p-4 hover:border-gold/30 transition-all duration-500 block cursor-pointer"
             >
-              <div className="relative aspect-square rounded-2xl overflow-hidden mb-6">
+              <div className="relative aspect-square rounded-xl md:rounded-2xl overflow-hidden mb-3 md:mb-6">
                 <img 
                   src={product.image} 
                   alt={product.name} 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-black/45 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                  <span className="gold-button px-6 py-2 rounded-full text-xs uppercase font-bold tracking-wider shadow-lg">
+                  <span className="gold-button px-4 py-1.5 md:px-6 md:py-2 rounded-full text-[10px] md:text-xs uppercase font-bold tracking-wider shadow-lg">
                     Order Online
                   </span>
                 </div>
               </div>
               
-              <div className="px-2 pb-2">
-                <div className="mb-2">
-                  <h3 className="text-xl font-serif tracking-wide group-hover:text-gold transition-colors duration-300">
+              <div className="px-1 md:px-2 pb-1 md:pb-2 text-left">
+                <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2">
+                  <h3 className="text-sm md:text-lg font-serif tracking-wide group-hover:text-gold transition-colors duration-300 font-bold leading-tight">
                     {product.name}
                   </h3>
+                  <span className="text-xs md:text-sm font-mono text-gold font-bold whitespace-nowrap">
+                    {product.price}
+                  </span>
                 </div>
-                <p className="text-white/40 text-sm font-light leading-relaxed">
+                <p className="text-white/40 text-[10px] md:text-sm font-light leading-relaxed line-clamp-2 sm:line-clamp-none">
                   {product.description}
                 </p>
               </div>

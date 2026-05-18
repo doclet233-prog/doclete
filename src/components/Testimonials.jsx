@@ -180,28 +180,42 @@ const Testimonials = ({ reviews, averageRating, onAddReview }) => {
           </motion.form>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {reviews.map((review, index) => (
-              <motion.div
-                key={review.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: Math.min(index * 0.08, 0.4) }}
-                className="glass-morphism p-7 md:p-8 rounded-[2rem] border border-white/5 relative"
-              >
-                <div className="mb-5">
-                  <StarDisplay rating={review.stars} />
-                </div>
-                <p className="text-white/70 text-base md:text-lg font-light leading-relaxed mb-6 italic">
-                  "{review.text}"
-                </p>
-                <div className="flex flex-col gap-1">
-                  <h4 className="font-serif text-xl tracking-wide">- {review.name}</h4>
-                  <span className="text-white/30 text-xs uppercase tracking-widest">
-                    {new Date(review.createdAt).toLocaleDateString()}
-                  </span>
-                </div>
-              </motion.div>
-            ))}
+            {(() => {
+              const displayedReviews = reviews.filter((r) => !r.id.startsWith('seed-'));
+              if (displayedReviews.length === 0) {
+                return (
+                  <div className="col-span-1 md:col-span-2 flex flex-col items-center justify-center py-16 px-6 border border-dashed border-white/10 rounded-[2.5rem] bg-white/[0.02] text-center">
+                    <span className="text-4xl mb-4 animate-bounce">✍️</span>
+                    <h4 className="font-serif text-xl text-white mb-2 font-bold">No Guest Reviews Yet</h4>
+                    <p className="text-white/40 text-sm max-w-xs leading-relaxed">
+                      Be the first to share your artisanal dessert experience with us! Use the form on the left to publish yours.
+                    </p>
+                  </div>
+                );
+              }
+              return displayedReviews.map((review, index) => (
+                <motion.div
+                  key={review.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: Math.min(index * 0.08, 0.4) }}
+                  className="glass-morphism p-7 md:p-8 rounded-[2rem] border border-white/5 relative"
+                >
+                  <div className="mb-5">
+                    <StarDisplay rating={review.stars} />
+                  </div>
+                  <p className="text-white/70 text-base md:text-lg font-light leading-relaxed mb-6 italic">
+                    "{review.text}"
+                  </p>
+                  <div className="flex flex-col gap-1">
+                    <h4 className="font-serif text-xl tracking-wide">- {review.name}</h4>
+                    <span className="text-white/30 text-xs uppercase tracking-widest">
+                      {new Date(review.createdAt).toLocaleDateString()}
+                    </span>
+                  </div>
+                </motion.div>
+              ));
+            })()}
           </div>
         </div>
       </div>
