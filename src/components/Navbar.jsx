@@ -22,6 +22,26 @@ const Navbar = () => {
     { name: 'Order Online', href: '#order' },
   ];
 
+  const handleMobileClick = (e, href) => {
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      const targetId = href.substring(1);
+      
+      setMobileMenuOpen(false);
+      
+      setTimeout(() => {
+        if (targetId) {
+          const el = document.getElementById(targetId);
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+          }
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      }, 300);
+    }
+  };
+
   return (
     <nav className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? 'py-4 glass-morphism' : 'py-5 md:py-8 bg-transparent'}`}>
       <div className="container mx-auto px-6 flex justify-between items-center">
@@ -103,7 +123,7 @@ const Navbar = () => {
                     <a
                       key={link.name}
                       href={link.href}
-                      onClick={() => setMobileMenuOpen(false)}
+                      onClick={(e) => handleMobileClick(e, link.href)}
                       className="bg-gold text-softBlack w-full py-4 rounded-2xl text-center font-bold tracking-widest uppercase text-sm shadow-[0_10px_35px_rgba(220,213,198,0.3)] flex items-center justify-center gap-2 border border-gold"
                     >
                       <span className="w-2 h-2 rounded-full bg-softBlack animate-ping" />
@@ -115,7 +135,7 @@ const Navbar = () => {
                   <a
                     key={link.name}
                     href={link.href}
-                    onClick={() => setMobileMenuOpen(false)}
+                    onClick={(e) => handleMobileClick(e, link.href)}
                     className="text-lg font-serif tracking-widest text-white/80 hover:text-gold"
                   >
                     {link.name}
@@ -124,7 +144,7 @@ const Navbar = () => {
               })}
               <a
                 href="#reviews"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(e) => handleMobileClick(e, '#reviews')}
                 className="border border-white/10 hover:border-gold/50 hover:bg-white/5 w-full py-3.5 rounded-xl font-bold text-center tracking-widest text-xs uppercase mt-2 transition-all duration-300"
               >
                 Review Us
