@@ -6,7 +6,7 @@
   /* Default: Gorgeous Warm Ivory Cream matching the Logo Background Color */
   --bg-color: #F5EFEB; /* Premium logo background off-white cream */
   --panel-bg: rgba(255, 255, 255, 0.85); /* Clean white translucent glassmorphism backing */
-  --panel-border: rgba(176, 164, 142, 0.2); /* Soft bronze gold stroke */
+  --panel-border: rgba(176, 164, 142, 0.25); /* Soft bronze gold stroke */
   --text-main: #2E2522; /* Luxurious warm cacao-charcoal for readability */
   --text-muted: rgba(46, 37, 34, 0.65); /* Muted warm bronze/charcoal */
   --text-secondary: rgba(46, 37, 34, 0.80); /* Medium warm charcoal */
@@ -37,6 +37,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Playfair Display', serif;
+  font-weight: 750 !important;
 }
 
 .glass-morphism {
@@ -67,9 +68,51 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 10px 20px rgba(176, 164, 142, 0.25) !important;
 }
 
+/* 100% Bulletproof Typography Boosters for flawless readability */
+.text-xs {
+  font-size: 0.85rem !important; /* Scale up small text by 15% */
+  font-weight: 600 !important; /* Make it much bolder */
+  color: var(--text-secondary) !important;
+}
+.text-\[10px\] {
+  font-size: 0.8rem !important; /* Scale up micro text */
+  font-weight: 650 !important;
+  color: var(--text-secondary) !important;
+}
+.text-sm {
+  font-size: 0.95rem !important; /* Scale up standard small text */
+  font-weight: 550 !important;
+  color: var(--text-main) !important;
+}
+.text-base {
+  font-size: 1.05rem !important;
+  font-weight: 500 !important;
+}
+
 /* 100% Bulletproof Global Override: Force all text elements on the website to resolve to dark cacao */
 body, p, span, h1, h2, h3, h4, h5, h6, a, button, input, textarea, label, select {
   color: var(--text-main);
+}
+
+/* Make pricing, totals, and checkout figures highly prominent, extra bold, and rich chocolate charcoal */
+.text-right span, 
+.text-right div, 
+.glass-morphism span[class*="font-bold"], 
+span[class*="text-gold"], 
+span[class*="font-bold"],
+[class*="price"] {
+  color: #120B0A !important;
+  font-weight: 800 !important;
+}
+
+/* Maintain special golden accents on non-pricing elements */
+.text-gold-dark, .gold-text {
+  color: var(--gold) !important;
+}
+
+/* Keep rating stars gold for high quality feedback aesthetic */
+span.text-gold {
+  color: #B0A48E !important;
 }
 
 /* Beautiful secondary & muted shades using class name styling where requested */
@@ -88,11 +131,6 @@ input, textarea {
 }
 input::placeholder, textarea::placeholder {
   color: rgba(46, 37, 34, 0.45) !important;
-}
-
-/* Gold elements exception overrides */
-.text-gold, .text-gold *, .text-gold-dark {
-  color: var(--gold) !important;
 }
 
 .gold-button, .gold-button * {
