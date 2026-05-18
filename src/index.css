@@ -4,14 +4,14 @@
 
 :root {
   /* Default: Gorgeous Warm Ivory Cream matching the Logo Background Color */
-  --bg-color: #F5EFEB; /* Premium logo background off-white cream */
+  --bg-color: #EFE6DA; /* Gorgeous richer, slightly darker buttery patisserie cream */
   --panel-bg: rgba(255, 255, 255, 0.88); /* Clean white translucent glassmorphism backing */
   --panel-border: rgba(176, 164, 142, 0.22); /* Soft bronze gold stroke */
   --text-main: #2E2522; /* Luxurious warm cacao-charcoal for readability */
   --text-muted: rgba(46, 37, 34, 0.65); /* Muted warm bronze/charcoal */
   --text-secondary: rgba(46, 37, 34, 0.80); /* Medium warm charcoal */
   --gold: #B0A48E; /* Rich golden bronze from the logo borders */
-  --cream: #F5EFEB;
+  --cream: #EFE6DA;
   --gold-dark: #8E816D;
   --card-shadow: rgba(176, 164, 142, 0.05);
   --input-bg: rgba(255, 255, 255, 0.95); /* Opaque white input backing for legibility */
