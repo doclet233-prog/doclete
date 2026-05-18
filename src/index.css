@@ -8,14 +8,14 @@
   --panel-bg: rgba(255, 255, 255, 0.85); /* Clean white translucent glassmorphism backing */
   --panel-border: rgba(176, 164, 142, 0.2); /* Soft bronze gold stroke */
   --text-main: #2E2522; /* Luxurious warm cacao-charcoal for readability */
-  --text-muted: rgba(46, 37, 34, 0.55); /* Muted warm bronze/charcoal */
-  --text-secondary: rgba(46, 37, 34, 0.75); /* Medium warm charcoal */
+  --text-muted: rgba(46, 37, 34, 0.65); /* Muted warm bronze/charcoal */
+  --text-secondary: rgba(46, 37, 34, 0.80); /* Medium warm charcoal */
   --gold: #B0A48E; /* Rich golden bronze from the logo borders */
   --cream: #F5EFEB;
   --gold-dark: #8E816D;
   --card-shadow: rgba(46, 37, 34, 0.06);
-  --input-bg: rgba(46, 37, 34, 0.03);
-  --input-border: rgba(176, 164, 142, 0.25);
+  --input-bg: rgba(255, 255, 255, 0.9); /* Opaque white input backing for legibility */
+  --input-border: rgba(176, 164, 142, 0.35);
   --scrollbar-track: #F3EFE4;
 }
 
@@ -52,6 +52,7 @@ h1, h2, h3, h4, h5, h6 {
   background: linear-gradient(135deg, #2E2522 0%, #B0A48E 50%, #8E816D 100%) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
   transition: background 0.4s ease;
 }
 
@@ -66,38 +67,39 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 10px 20px rgba(176, 164, 142, 0.25) !important;
 }
 
-/* Global Overrides to force standard dark components to resolve to the logo background theme */
-.text-white {
-  color: var(--text-main) !important;
-}
-.text-white\/90 {
-  color: var(--text-main) !important;
-}
-.text-white\/80 {
-  color: var(--text-secondary) !important;
-}
-.text-white\/70 {
-  color: var(--text-secondary) !important;
-}
-.text-white\/60 {
-  color: var(--text-secondary) !important;
-}
-.text-white\/40 {
-  color: var(--text-muted) !important;
-}
-.text-white\/30 {
-  color: var(--text-muted) !important;
-}
-.text-white\/20 {
-  color: var(--panel-border) !important;
-}
-.text-white\/10 {
-  color: var(--panel-border) !important;
-}
-.text-white\/5 {
-  color: var(--panel-border) !important;
+/* 100% Bulletproof Global Override: Force all text elements on the website to resolve to dark cacao */
+body, p, span, h1, h2, h3, h4, h5, h6, a, button, input, textarea, label, select {
+  color: var(--text-main);
 }
 
+/* Beautiful secondary & muted shades using class name styling where requested */
+.text-white\/85, .text-white\/80, .text-white\/75, .text-white\/70, .text-white\/65, .text-white\/60 {
+  color: var(--text-secondary) !important;
+}
+.text-white\/55, .text-white\/50, .text-white\/45, .text-white\/40, .text-white\/35, .text-white\/30, .text-white\/25, .text-white\/20, .text-white\/10 {
+  color: var(--text-muted) !important;
+}
+
+/* Input boxes & Textareas text override for high clarity */
+input, textarea {
+  color: #2E2522 !important;
+  background-color: var(--input-bg) !important;
+  border-color: var(--input-border) !important;
+}
+input::placeholder, textarea::placeholder {
+  color: rgba(46, 37, 34, 0.45) !important;
+}
+
+/* Gold elements exception overrides */
+.text-gold, .text-gold *, .text-gold-dark {
+  color: var(--gold) !important;
+}
+
+.gold-button, .gold-button * {
+  color: #F5EFEB !important;
+}
+
+/* Borders & translucent overlays */
 .border-white\/20 {
   border-color: var(--panel-border) !important;
 }
@@ -109,7 +111,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .bg-white\/5 {
-  background-color: var(--input-bg) !important;
+  background-color: rgba(46, 37, 34, 0.03) !important;
 }
 .bg-white\/10 {
   background-color: rgba(46, 37, 34, 0.06) !important;
@@ -132,6 +134,18 @@ h1, h2, h3, h4, h5, h6 {
 .via-black\/45 {
   --tw-gradient-to: rgba(245, 239, 235, 0) var(--tw-gradient-to-position) !important;
   --tw-gradient-stops: var(--tw-gradient-from), rgba(245, 239, 235, 0.45) var(--tw-gradient-via-position), var(--tw-gradient-to) !important;
+}
+
+/* Ensure the fullscreen Instagram story overlay text remains white on dark image slides */
+.story-overlay, .story-overlay * {
+  --text-main: #FFFFFF !important;
+  --text-secondary: rgba(255, 255, 255, 0.85) !important;
+  --text-muted: rgba(255, 255, 255, 0.60) !important;
+  --panel-border: rgba(255, 255, 255, 0.20) !important;
+  color: var(--text-main) !important;
+}
+.story-overlay .text-gold {
+  color: #DCD5C6 !important;
 }
 
 /* Custom scrollbar */

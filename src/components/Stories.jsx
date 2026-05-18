@@ -275,7 +275,7 @@ const Stories = () => {
       <AnimatePresence>
         {activeStoryIndex !== null && (
           <motion.div
-            className="fixed inset-0 z-[150] bg-black/98 flex items-center justify-center select-none touch-none"
+            className="fixed inset-0 z-[150] bg-black/98 flex items-center justify-center select-none touch-none story-overlay"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
