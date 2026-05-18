@@ -5,16 +5,16 @@
 :root {
   /* Default: Gorgeous Warm Ivory Cream matching the Logo Background Color */
   --bg-color: #F5EFEB; /* Premium logo background off-white cream */
-  --panel-bg: rgba(255, 255, 255, 0.85); /* Clean white translucent glassmorphism backing */
-  --panel-border: rgba(176, 164, 142, 0.25); /* Soft bronze gold stroke */
+  --panel-bg: rgba(255, 255, 255, 0.88); /* Clean white translucent glassmorphism backing */
+  --panel-border: rgba(176, 164, 142, 0.22); /* Soft bronze gold stroke */
   --text-main: #2E2522; /* Luxurious warm cacao-charcoal for readability */
   --text-muted: rgba(46, 37, 34, 0.65); /* Muted warm bronze/charcoal */
   --text-secondary: rgba(46, 37, 34, 0.80); /* Medium warm charcoal */
   --gold: #B0A48E; /* Rich golden bronze from the logo borders */
   --cream: #F5EFEB;
   --gold-dark: #8E816D;
-  --card-shadow: rgba(46, 37, 34, 0.06);
-  --input-bg: rgba(255, 255, 255, 0.9); /* Opaque white input backing for legibility */
+  --card-shadow: rgba(176, 164, 142, 0.05);
+  --input-bg: rgba(255, 255, 255, 0.95); /* Opaque white input backing for legibility */
   --input-border: rgba(176, 164, 142, 0.35);
   --scrollbar-track: #F3EFE4;
 }
@@ -46,7 +46,14 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--panel-border);
   box-shadow: 0 8px 32px 0 var(--card-shadow);
-  transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Premium Hover lifting effect for all cards on the site */
+.glass-morphism:hover {
+  transform: translateY(-5px);
+  border-color: rgba(176, 164, 142, 0.5) !important;
+  box-shadow: 0 20px 40px rgba(176, 164, 142, 0.12) !important;
 }
 
 .gold-gradient {
@@ -60,12 +67,12 @@ h1, h2, h3, h4, h5, h6 {
 .gold-button {
   background: linear-gradient(135deg, #B0A48E 0%, #8E816D 100%) !important;
   color: #F5EFEB !important;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .gold-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(176, 164, 142, 0.25) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(176, 164, 142, 0.35) !important;
 }
 
 /* 100% Bulletproof Typography Boosters for flawless readability */
@@ -123,21 +130,49 @@ span.text-gold {
   color: var(--text-muted) !important;
 }
 
-/* Input boxes & Textareas text override for high clarity */
+/* Input boxes & Textareas text override for high clarity and premium transitions */
 input, textarea {
   color: #2E2522 !important;
   background-color: var(--input-bg) !important;
   border-color: var(--input-border) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 input::placeholder, textarea::placeholder {
   color: rgba(46, 37, 34, 0.45) !important;
+}
+
+/* Premium active focus outline glow for inputs */
+input:focus, textarea:focus {
+  border-color: var(--gold) !important;
+  background-color: #FFFFFF !important;
+  box-shadow: 0 0 15px rgba(176, 164, 142, 0.2) !important;
+  transform: translateY(-1px);
+  outline: none;
 }
 
 .gold-button, .gold-button * {
   color: #F5EFEB !important;
 }
 
-/* Borders & translucent overlays */
+/* Interactive quantity spinners and action buttons hover transitions */
+.text-right button, 
+.flex button {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.text-right button:hover, 
+.flex button:hover {
+  background-color: var(--gold) !important;
+  color: #F5EFEB !important;
+  border-color: var(--gold) !important;
+  transform: scale(1.1);
+}
+
+/* Letter spacing elegance */
+.tracking-widest {
+  letter-spacing: 0.22em !important;
+}
+
+/* Borders & translucent overlays with soft gold transitions */
 .border-white\/20 {
   border-color: var(--panel-border) !important;
 }
@@ -145,14 +180,14 @@ input::placeholder, textarea::placeholder {
   border-color: var(--panel-border) !important;
 }
 .border-white\/5 {
-  border-color: var(--panel-border) !important;
+  border-color: rgba(176, 164, 142, 0.12) !important;
 }
 
 .bg-white\/5 {
-  background-color: rgba(46, 37, 34, 0.03) !important;
+  background-color: rgba(46, 37, 34, 0.02) !important;
 }
 .bg-white\/10 {
-  background-color: rgba(46, 37, 34, 0.06) !important;
+  background-color: rgba(46, 37, 34, 0.05) !important;
 }
 .bg-black\/60 {
   background-color: rgba(255, 255, 255, 0.65) !important;
