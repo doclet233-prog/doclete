@@ -221,6 +221,27 @@ input:focus, textarea:focus {
   color: #DCD5C6 !important;
 }
 
+/* Keep the text inside the Fresh Moments story cards high-contrast white on top of the cover photos */
+#stories .group, #stories button {
+  --text-main: #FFFFFF !important;
+  --text-secondary: rgba(255, 255, 255, 0.85) !important;
+  --text-muted: rgba(255, 255, 255, 0.60) !important;
+}
+
+#stories .group *, #stories button * {
+  color: #FFFFFF !important;
+}
+
+/* Ensure the gold numbers/labels in the story cards remain gold */
+#stories .text-gold, #stories .text-gold * {
+  color: #DCD5C6 !important;
+}
+
+/* Restore the dark black gradient vignette overlay inside story cards so text is perfectly readable */
+#stories .bg-gradient-to-t {
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0) 100%) !important;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
