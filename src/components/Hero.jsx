@@ -33,7 +33,7 @@ const Hero = ({ averageRating, reviewCount }) => {
           }}
         >
           <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
-          <span>✨ Now you can order also</span>
+          <span>✨ Now you can order online also</span>
         </motion.div>
 
         <motion.h1
