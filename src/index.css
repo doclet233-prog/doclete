@@ -3,9 +3,20 @@
 @config "../tailwind.config.js";
 
 :root {
-  --gold: #DCD5C6;
-  --cream: #F3EFE4;
-  --soft-black: #120B0A;
+  /* Default: Gorgeous Warm Ivory Cream matching the Logo Background Color */
+  --bg-color: #F5EFEB; /* Premium logo background off-white cream */
+  --panel-bg: rgba(255, 255, 255, 0.85); /* Clean white translucent glassmorphism backing */
+  --panel-border: rgba(176, 164, 142, 0.2); /* Soft bronze gold stroke */
+  --text-main: #2E2522; /* Luxurious warm cacao-charcoal for readability */
+  --text-muted: rgba(46, 37, 34, 0.55); /* Muted warm bronze/charcoal */
+  --text-secondary: rgba(46, 37, 34, 0.75); /* Medium warm charcoal */
+  --gold: #B0A48E; /* Rich golden bronze from the logo borders */
+  --cream: #F5EFEB;
+  --gold-dark: #8E816D;
+  --card-shadow: rgba(46, 37, 34, 0.06);
+  --input-bg: rgba(46, 37, 34, 0.03);
+  --input-border: rgba(176, 164, 142, 0.25);
+  --scrollbar-track: #F3EFE4;
 }
 
 html {
@@ -18,9 +29,10 @@ body {
   font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--soft-black);
-  color: #F5F5F5;
+  background-color: var(--bg-color);
+  color: var(--text-main);
   overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -28,28 +40,98 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .glass-morphism {
-  background: rgba(30, 18, 16, 0.45); /* Warm chocolate-cacao translucent backing */
+  background: var(--panel-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(220, 213, 198, 0.08); /* Logo gold border stroke */
-  box-shadow: 0 8px 32px 0 rgba(19, 12, 11, 0.37);
+  border: 1px solid var(--panel-border);
+  box-shadow: 0 8px 32px 0 var(--card-shadow);
+  transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
 .gold-gradient {
-  background: linear-gradient(135deg, #F3EFE4 0%, #DCD5C6 50%, #B0A48E 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background: linear-gradient(135deg, #2E2522 0%, #B0A48E 50%, #8E816D 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  transition: background 0.4s ease;
 }
 
 .gold-button {
-  background: linear-gradient(135deg, #DCD5C6 0%, #B0A48E 100%);
-  color: #120B0A;
+  background: linear-gradient(135deg, #B0A48E 0%, #8E816D 100%) !important;
+  color: #F5EFEB !important;
   transition: all 0.3s ease;
 }
 
 .gold-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(220, 213, 198, 0.25);
+  box-shadow: 0 10px 20px rgba(176, 164, 142, 0.25) !important;
+}
+
+/* Global Overrides to force standard dark components to resolve to the logo background theme */
+.text-white {
+  color: var(--text-main) !important;
+}
+.text-white\/90 {
+  color: var(--text-main) !important;
+}
+.text-white\/80 {
+  color: var(--text-secondary) !important;
+}
+.text-white\/70 {
+  color: var(--text-secondary) !important;
+}
+.text-white\/60 {
+  color: var(--text-secondary) !important;
+}
+.text-white\/40 {
+  color: var(--text-muted) !important;
+}
+.text-white\/30 {
+  color: var(--text-muted) !important;
+}
+.text-white\/20 {
+  color: var(--panel-border) !important;
+}
+.text-white\/10 {
+  color: var(--panel-border) !important;
+}
+.text-white\/5 {
+  color: var(--panel-border) !important;
+}
+
+.border-white\/20 {
+  border-color: var(--panel-border) !important;
+}
+.border-white\/10 {
+  border-color: var(--panel-border) !important;
+}
+.border-white\/5 {
+  border-color: var(--panel-border) !important;
+}
+
+.bg-white\/5 {
+  background-color: var(--input-bg) !important;
+}
+.bg-white\/10 {
+  background-color: rgba(46, 37, 34, 0.06) !important;
+}
+.bg-black\/60 {
+  background-color: rgba(255, 255, 255, 0.65) !important;
+}
+.bg-black\/45 {
+  background-color: rgba(255, 255, 255, 0.45) !important;
+}
+.bg-black\/95 {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.from-black\/95 {
+  --tw-gradient-from: rgba(245, 239, 235, 0.95) var(--tw-gradient-from-position) !important;
+  --tw-gradient-to: rgba(245, 239, 235, 0) var(--tw-gradient-to-position) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+.via-black\/45 {
+  --tw-gradient-to: rgba(245, 239, 235, 0) var(--tw-gradient-to-position) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), rgba(245, 239, 235, 0.45) var(--tw-gradient-via-position), var(--tw-gradient-to) !important;
 }
 
 /* Custom scrollbar */
@@ -58,14 +140,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-track {
-  background: #1A1210;
+  background: var(--scrollbar-track);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #DCD5C6;
+  background: var(--gold);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #B0A48E;
+  background: var(--gold-dark);
 }
