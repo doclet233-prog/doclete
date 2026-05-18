@@ -6,24 +6,6 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('theme') || 'dark';
-  });
-
-  useEffect(() => {
-    const root = document.documentElement;
-    if (theme === 'light') {
-      root.classList.add('light');
-    } else {
-      root.classList.remove('light');
-    }
-    localStorage.setItem('theme', theme);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme(prev => prev === 'light' ? 'dark' : 'light');
-  };
-
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -92,24 +74,6 @@ const Navbar = () => {
           >
             Review Us
           </motion.a>
-          
-          <motion.button
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            onClick={toggleTheme}
-            className="p-2.5 rounded-full border border-white/10 hover:border-gold/50 bg-white/5 hover:bg-white/10 text-gold transition-all duration-300 focus:outline-none flex items-center justify-center cursor-pointer shadow-md hover:scale-110 active:scale-90"
-            title={theme === 'light' ? 'Switch to Dark Mode' : 'Switch to Light Mode'}
-          >
-            {theme === 'light' ? (
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-              </svg>
-            ) : (
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
-              </svg>
-            )}
-          </motion.button>
         </div>
 
         {/* Mobile Toggle */}
@@ -158,31 +122,13 @@ const Navbar = () => {
                   </a>
                 );
               })}
-              <div className="flex items-center justify-between gap-4 mt-2 border-t border-white/10 pt-4">
-                <a
-                  href="#reviews"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="border border-white/10 hover:border-gold/50 hover:bg-white/5 flex-grow py-3 rounded-xl font-bold text-center tracking-widest text-xs uppercase transition-all duration-300"
-                >
-                  Review Us
-                </a>
-                
-                <button
-                  onClick={toggleTheme}
-                  className="p-3 rounded-xl border border-white/10 hover:border-gold/50 bg-white/5 hover:bg-white/10 text-gold flex items-center justify-center cursor-pointer shadow-md w-12 h-12"
-                  aria-label="Toggle theme"
-                >
-                  {theme === 'light' ? (
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                    </svg>
-                  ) : (
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
-                    </svg>
-                  )}
-                </button>
-              </div>
+              <a
+                href="#reviews"
+                onClick={() => setMobileMenuOpen(false)}
+                className="border border-white/10 hover:border-gold/50 hover:bg-white/5 w-full py-3.5 rounded-xl font-bold text-center tracking-widest text-xs uppercase mt-2 transition-all duration-300"
+              >
+                Review Us
+              </a>
             </div>
           </motion.div>
         )}
