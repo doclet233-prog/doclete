@@ -4,7 +4,7 @@ import { formatRating } from '../data/reviews';
 
 const Hero = ({ averageRating, reviewCount }) => {
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-softBlack pt-20 md:pt-0">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-softBlack pt-28 md:pt-0">
       <div className="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none">
         <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-gold/20 blur-[120px] rounded-full" />
         <div className="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] bg-gold/10 blur-[120px] rounded-full" />
@@ -15,7 +15,7 @@ const Hero = ({ averageRating, reviewCount }) => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: 'easeOut' }}
-          className="mb-8"
+          className="mb-8 mt-6 md:mt-0"
         >
           <img src={logo} alt="Dolcetto Logo" className="h-32 w-32 md:h-48 md:w-48 rounded-full object-cover mx-auto filter drop-shadow-2xl border-4 border-black" />
         </motion.div>
