@@ -190,7 +190,7 @@ const Contact = () => {
               </div>
               <h3 className="text-2xl font-serif gold-gradient mb-2">Message Sent!</h3>
               <p className="text-white/50 text-sm leading-relaxed mb-6">
-                Thank you for reaching out to _.dolcetto._. We will review your message and reply as soon as possible.
+                Thank you for reaching out to dolcetto. We will review your message and reply as soon as possible.
               </p>
               <button 
                 onClick={() => setIsSubmitted(false)}

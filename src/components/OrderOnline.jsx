@@ -749,7 +749,7 @@ const OrderOnline = ({ selectedProduct, clearSelectedProduct }) => {
                   </svg>
                 </div>
                 <h3 className="text-2xl md:text-3xl font-serif gold-gradient">Order Placed!</h3>
-                <p className="text-white/40 text-xs tracking-widest uppercase mt-1">_.dolcetto._ mangalore</p>
+                <p className="text-white/40 text-xs tracking-widest uppercase mt-1">dolcetto mangalore</p>
               </div>
 
               {/* Physical Receipt Ticket Visual */}

@@ -30,7 +30,7 @@ const Footer = () => {
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 pt-10 border-t border-white/5">
           <p className="text-white/20 text-xs tracking-widest">
-            (C) 2024 _.DOLCETTO._ ALL RIGHTS RESERVED.
+            (C) 2024 DOLCETTO. ALL RIGHTS RESERVED.
           </p>
           <div className="flex gap-6">
             <a href="#" className="text-white/20 hover:text-white transition-colors text-xs tracking-widest">PRIVACY POLICY</a>

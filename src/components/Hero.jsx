@@ -4,7 +4,7 @@ import { formatRating } from '../data/reviews';
 
 const Hero = ({ averageRating, reviewCount }) => {
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-softBlack">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-softBlack pt-20 md:pt-0">
       <div className="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none">
         <div className="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-gold/20 blur-[120px] rounded-full" />
         <div className="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] bg-gold/10 blur-[120px] rounded-full" />

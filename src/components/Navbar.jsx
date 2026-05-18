@@ -23,7 +23,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? 'py-4 glass-morphism' : 'py-8 bg-transparent'}`}>
+    <nav className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? 'py-4 glass-morphism' : 'py-5 md:py-8 bg-transparent'}`}>
       <div className="container mx-auto px-6 flex justify-between items-center">
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
@@ -31,7 +31,7 @@ const Navbar = () => {
           className="flex items-center gap-2"
         >
           <img src={logo} alt="Dolcetto Logo" className="h-10 w-10 rounded-full object-cover border border-gold/20" />
-          <span className="text-2xl font-serif tracking-widest gold-gradient italic">_.dolcetto._</span>
+          <span className="text-2xl font-serif tracking-widest gold-gradient italic">dolcetto</span>
         </motion.div>
 
         {/* Desktop Menu */}

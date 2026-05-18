@@ -346,7 +346,7 @@ const Stories = () => {
                   </div>
                   <div className="flex flex-col text-left">
                     <span className="font-serif text-gold font-bold text-sm leading-tight tracking-wider">
-                      _.dolcetto._
+                      dolcetto
                     </span>
                     <span className="text-[10px] text-white/60 tracking-widest uppercase">
                       Fresh Bakery

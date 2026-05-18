@@ -78,7 +78,7 @@ function App() {
                 transition={{ duration: 1, repeat: Infinity, repeatType: "reverse" }}
                 className="text-4xl md:text-6xl font-serif gold-gradient italic mb-4"
               >
-                _.dolcetto._
+                dolcetto
               </motion.div>
               <div className="w-48 h-[1px] bg-white/10 mx-auto overflow-hidden">
                 <motion.div
