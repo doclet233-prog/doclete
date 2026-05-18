@@ -10,11 +10,11 @@ export default {
         gold: {
           light: '#F3EFE4',
           DEFAULT: '#DCD5C6',
-          dark: '#A29780',
+          dark: '#B0A48E',
         },
         cream: '#F3EFE4',
-        softBlack: '#0D0807',
-        warmDark: '#18110F',
+        softBlack: '#120B0A',
+        warmDark: '#1E1210',
       },
       fontFamily: {
         serif: ['"Playfair Display"', 'serif'],
