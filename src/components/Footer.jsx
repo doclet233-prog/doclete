@@ -23,7 +23,6 @@ const Footer = () => {
             <div className="flex flex-col gap-4">
               <h4 className="text-white text-sm font-bold uppercase tracking-widest">Connect</h4>
               <a href="https://www.instagram.com/_.dolcetto._?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-gold transition-colors text-sm">Instagram</a>
-              <a href="#" className="text-white/40 hover:text-gold transition-colors text-sm">Facebook</a>
             </div>
           </div>
         </div>
