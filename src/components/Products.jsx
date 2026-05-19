@@ -2,6 +2,12 @@ import { motion } from 'framer-motion';
 import { productsData } from '../data/products';
 import logo from '../assets/logo1.png';
 
+const logoPositions = {
+  'Choco Crush': { top: '36%', left: '47%' },
+  'Blueberry Cheesecake': { top: '38%', left: '50%' },
+  'Badam Pudding': { top: '45%', left: '50%' },
+};
+
 const Products = ({ onSelectProduct }) => {
   return (
     <section id="products" className="py-24 bg-softBlack">
@@ -55,8 +61,12 @@ const Products = ({ onSelectProduct }) => {
                 />
                 {!['Dark Chocolate Cheesecake', 'Chocolate Mousse', 'Cold Coffee', 'Biscoff Cheesecake', 'Classic Tiramisu'].includes(product.name) && (
                   <div 
-                    className="absolute top-[50%] left-[50%] w-[25%] aspect-square z-10 pointer-events-none opacity-95 flex items-center justify-center"
-                    style={{ transform: 'translate(-50%, -50%) rotateX(60deg)' }}
+                    className="absolute w-[25%] aspect-square z-10 pointer-events-none opacity-95 flex items-center justify-center"
+                    style={{ 
+                      top: logoPositions[product.name]?.top || '50%',
+                      left: logoPositions[product.name]?.left || '50%',
+                      transform: 'translate(-50%, -50%) rotateX(60deg)' 
+                    }}
                   >
                     <img 
                       src={logo} 
