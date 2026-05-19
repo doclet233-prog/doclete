@@ -17,7 +17,7 @@ const Hero = ({ averageRating, reviewCount }) => {
           transition={{ duration: 1, ease: 'easeOut' }}
           className="mb-8 mt-6 md:mt-0"
         >
-          <img src={logo} alt="Dolcetto Logo" className="h-32 w-32 md:h-48 md:w-48 rounded-full object-cover mx-auto filter drop-shadow-2xl border-4 border-black" />
+          <img src={logo} alt="Dolcetto Logo" className="h-32 w-32 md:h-48 md:w-48 rounded-full object-cover mx-auto filter drop-shadow-2xl" />
         </motion.div>
 
         <motion.div

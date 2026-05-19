@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { productsData } from '../data/products';
+import logo from '../assets/logo1.png';
 
 const Products = ({ onSelectProduct }) => {
   return (
@@ -52,7 +53,19 @@ const Products = ({ onSelectProduct }) => {
                   alt={product.name} 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-black/45 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                {!['Dark Chocolate Cheesecake', 'Chocolate Mousse', 'Cold Coffee', 'Biscoff Cheesecake', 'Classic Tiramisu'].includes(product.name) && (
+                  <div 
+                    className="absolute top-[50%] left-[50%] w-[25%] aspect-square z-10 pointer-events-none opacity-95 flex items-center justify-center"
+                    style={{ transform: 'translate(-50%, -50%) rotateX(60deg)' }}
+                  >
+                    <img 
+                      src={logo} 
+                      alt="Dolcetto Logo" 
+                      className="w-full h-full rounded-full object-cover border border-white/20 shadow-[0_5px_15px_rgba(0,0,0,0.5)] transition-transform duration-700 group-hover:scale-110" 
+                    />
+                  </div>
+                )}
+                <div className="absolute inset-0 bg-black/45 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center z-20">
                   <span className="gold-button px-4 py-1.5 md:px-6 md:py-2 rounded-full text-[10px] md:text-xs uppercase font-bold tracking-wider shadow-lg">
                     Order Online
                   </span>
