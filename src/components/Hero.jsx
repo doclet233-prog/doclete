@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import logo from '../assets/logo1.png';
+import nameLogo from '../assets/qwe.png';
 import { formatRating } from '../data/reviews';
 
 const Hero = ({ averageRating, reviewCount }) => {
@@ -11,39 +12,28 @@ const Hero = ({ averageRating, reviewCount }) => {
       </div>
 
       <div className="container mx-auto px-6 relative z-10 text-center">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: 'easeOut' }}
-          className="mb-8 mt-6 md:mt-0"
-        >
-          <img src={logo} alt="Dolcetto Logo" className="h-32 w-32 md:h-48 md:w-48 rounded-full object-cover mx-auto filter drop-shadow-2xl" />
-        </motion.div>
+
+
+
 
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.8 }}
-          className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gold/10 border border-gold/30 text-gold text-[10px] md:text-xs uppercase tracking-widest font-bold mb-6 shadow-[0_0_20px_rgba(220,213,198,0.15)] hover:scale-105 hover:bg-gold/15 transition-all duration-300 cursor-pointer"
-          onClick={() => {
-            const orderSection = document.getElementById('order');
-            if (orderSection) {
-              orderSection.scrollIntoView({ behavior: 'smooth' });
-            }
-          }}
-        >
-          <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
-          <span>✨ Now you can order online also</span>
-        </motion.div>
-
-        <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
-          className="text-5xl md:text-8xl font-serif mb-6 gold-gradient tracking-tight"
+          className="flex flex-col items-center justify-center mb-6 mt-12 md:mt-0"
         >
-          Artisanal Indulgence
-        </motion.h1>
+
+
+          {/* Main Logo Text */}
+          <h1 className="text-[6.5rem] sm:text-[9rem] md:text-[11rem] lg:text-[13rem] xl:text-[15rem] font-script real-gold-gradient leading-[1.3] pb-6 pr-4">
+            Dolcetto
+          </h1>
+
+          {/* Tagline */}
+          <p className="text-[10px] sm:text-xs md:text-sm lg:text-base tracking-[0.3em] md:tracking-[0.4em] lg:tracking-[0.5em] uppercase font-bold real-gold-gradient mt-2 pl-4 text-center">
+            A Little Sweet, A Lot Of Joy
+          </p>
+        </motion.div>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}

@@ -51,7 +51,7 @@ const Navbar = () => {
           className="flex items-center gap-2"
         >
           <img src={logo} alt="Dolcetto Logo" className="h-10 w-10 rounded-full object-cover" />
-          <span className="text-2xl font-serif tracking-widest gold-gradient italic">dolcetto</span>
+          <span className="text-3xl font-script gold-gradient pr-2 pt-1">Dolcetto</span>
         </motion.div>
 
         {/* Desktop Menu */}
