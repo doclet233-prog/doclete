@@ -20,7 +20,7 @@ const Hero = ({ averageRating, reviewCount }) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
-          className="flex flex-col items-center justify-center mb-6 mt-12 md:mt-0"
+          className="flex flex-col items-center justify-center mb-6 mt-36 md:mt-56"
         >
 
 

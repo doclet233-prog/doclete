@@ -48,10 +48,9 @@ const Navbar = () => {
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          className="flex items-center gap-2"
+          className="flex items-center gap-3 md:gap-4"
         >
-          <img src={logo} alt="Dolcetto Logo" className="h-10 w-10 rounded-full object-cover" />
-          <span className="text-3xl font-script gold-gradient pr-2 pt-1">Dolcetto</span>
+          <img src={logo} alt="Dolcetto Logo" className="h-16 w-16 md:h-20 md:w-20 rounded-full object-cover shadow-[0_0_15px_rgba(220,213,198,0.2)]" />
         </motion.div>
 
         {/* Desktop Menu */}
